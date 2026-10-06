@@ -1,15 +1,15 @@
-function CardPizza({ img, name, description, price, onAddToCart }) {
+function CardPizza(props) {
 
   const formatCLP = (value) => value.toLocaleString('es-CL');
  
   
   return (
     <div className="producto">
-      <img className="producto-img" src={img} alt={name} />
-      <h4>{name}</h4>
-      <p>{description}</p>
-      <p>Precio: ${formatCLP(price)}</p>
-      <button onClick={onAddToCart}>
+      <img className="producto-img" src={props.img} alt={props.name} />
+      <h4>{props.name}</h4>
+      <p>{props.description}</p>
+      <p>Precio: ${formatCLP(props.price)}</p>
+      <button onClick={props.onAddToCart}>
         Agregar al Carrito
       </button>
     </div>
