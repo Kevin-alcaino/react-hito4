@@ -86,7 +86,7 @@ La aplicación utiliza `react-router-dom` para gestionar la navegación entre p�
  ```
 
 ## 🔗 Links.
-Actualmente estoy trabajando en: [Hito 4 - React - Pizzeria Il Tomaco](https://react-hito2-pied.vercel.app/)
+Actualmente estoy trabajando en: [Hito 4 - React - Pizzeria Il Tomaco](https://react-hito4.vercel.app/)
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://kevin-alcaino.github.io/Kevin-alcaino.io/)
 
 ## 🙋‍♂️ Autor.
