@@ -1,6 +1,6 @@
-# 📄 Hito 2 - React - Pizzeria Il Tomaco.
-# 📄 Hito 3 - React - Pizzeria Il Tomaco.
-# 🔄 Actualización a Hito 4- React - Pizzeria Il Tomaco.
+
+# 📄 Hito 4- React - consumo de Apis.
+# 🔄 Actualización a Hito 5 - React - React Router.
 
  ## 🧠 Descripción del proyecto.
 
@@ -28,6 +28,7 @@ La aplicación utiliza `react-router-dom` para gestionar la navegación entre p�
   * `/login`: Muestra el formulario de inicio de sesión (`LoginPages`).
   * `/register`: Muestra la vista de registro (`FormularioPages`).
   * `/cart`: Muestra el detalle de la compra e interactividad de productos (`CartPages`).
+  * `/*` : Muestra not found, cuando una pagina no esta disponible (`NotfoundPages`).
 * **`<Link to="...">`**: Sustituye a las etiquetas `<a>` tradicionales dentro de componentes como `Navbar` para realizar transiciones de rutas sin recargar.
 
 ## 🛠 Tecnologías implementadas
