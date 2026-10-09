@@ -146,6 +146,14 @@ min-height: 100vh;
 
 }
 
+.notFound{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+min-height: 70vh;
+}
+
 @media (max-width: 768px) {
   .cont-producto {
     grid-template-columns: repeat(1, 1fr);

@@ -5,7 +5,7 @@ function NotfoundPages() {
   return (
     <>
       <Header />
-      <div className="notfound">
+      <div className="notFound">
         <h2>404 - Página no encontrada</h2>
         <p>Lo sentimos, la página que estás buscando no existe.</p>
       </div>
