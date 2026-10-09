@@ -1,6 +1,6 @@
 # 📄 Hito 2 - React - Pizzeria Il Tomaco.
 # 📄 Hito 3 - React - Pizzeria Il Tomaco.
-# 🔄 Actualización a Hito - React - Pizzeria Il Tomaco.
+# 🔄 Actualización a Hito 4- React - Pizzeria Il Tomaco.
 
  ## 🧠 Descripción del proyecto.
 
