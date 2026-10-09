@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from "./components/Navbar";
 import HomePages from './pages/HomePages';
@@ -10,7 +10,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
-  const [cart, setCart] = useState([]);
+ const [cart, setCart] = useState(() => {
+    const storedCart = localStorage.getItem('cart');
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
+  
+  useEffect(() => {
+  localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (pizza) => {
     setCart((prevCart) => [...prevCart, pizza]);
