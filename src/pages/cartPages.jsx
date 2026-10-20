@@ -1,24 +1,13 @@
+import { useContext } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { CartContext } from "../context/CartContext";
 
-function Cart({ cart = [], setCart }) {
+function Cart() {
   
-
-  // Incrementar la cantidad de una pizza
-  const sumar = (id) => {
-    setCart(cart.map(item => item.id === id ? { ...item, count: (item.count || 1) + 1 } : item));
-  };
-
-  // Quitar la cantidad de una pizza, quitar si llega a 0
-  const restar = (id) => {
-    setCart(
-      cart
-        .map(item => item.id === id ? { ...item, count: (item.count || 1) - 1 } : item));
-  };
-
-  // Total de la compra
-  const total = cart.reduce((acc, item) => acc + (item.price * (item.count || 1)), 0);
-  const formatCLP = (val) => val.toLocaleString("es-CL");
+  const { sumar, restar, total } = useContext(CartContext);
+  const { cart } = useContext(CartContext);
+  const formatCLP = (value) => value.toLocaleString("es-CL");
 
   return (
     <>

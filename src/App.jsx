@@ -4,8 +4,9 @@ import Navbar from "./components/Navbar";
 import HomePages from './pages/HomePages';
 import FormularioPages from './pages/FormularioPages';
 import LoginPages from "./pages/LoginPages";
-import Cart from "./pages/cartPages";
+import Cart from './pages/Cart';
 import NotfoundPages from './pages/NotfoundPages';
+import { CartProvider } from './context/CartContext';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -25,16 +26,16 @@ function App() {
   };
 
   return (
-    <>
-      <Navbar cart={cart} />
+    <CartProvider>     
+      <Navbar />
       <Routes>
         <Route path="/" element={<HomePages addToCart={addToCart} />} />
         <Route path="/formulario" element={<FormularioPages />} />
         <Route path="/login" element={<LoginPages />} />
-        <Route path="/carrito" element={<Cart cart={cart} setCart={setCart} />} />
+        <Route path="/carrito" element={<Cart />} />
         <Route path="*" element={<NotfoundPages/>} />
       </Routes>
-    </>
+    </CartProvider>
   );
 }
 

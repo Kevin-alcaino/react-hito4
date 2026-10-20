@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 
-function CardPizza(props) {
+function CardPizza() {
+  const { addToCart } = useContext(CartContext);
   const formatCLP = (value) => (value ? value.toLocaleString('es-CL') : '0');
   const [pizzas, setPizzas] = useState([]);
 
@@ -55,7 +57,7 @@ function CardPizza(props) {
                     </h4>
                     <button
                       className="btn-orange w-100 fw-bold"
-                      onClick={() => props.onAddToCart && props.onAddToCart(pizza)}
+                      onClick={() => addToCart(pizza)}
                     >
                       Añadir 🛒
                     </button>

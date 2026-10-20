@@ -1,9 +1,11 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
-function Navbar({ cart = [] }) {
-  const token = false; 
+function Navbar() {
 
-  const total = cart.reduce((acc, item) => acc + (item.price || 0), 0);
+
+  const { total } = useContext(CartContext);
   const formatCLP = (value) => value.toLocaleString("es-CL");
 
   return (
