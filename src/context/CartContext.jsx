@@ -1,6 +1,5 @@
-import { createContext, useState, useEffect } from 'react';
-
-export const CartContext = createContext();
+import { useState, useEffect } from 'react';
+import { CartContext } from './CartContext';
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(() => {
@@ -24,8 +23,8 @@ export const CartProvider = ({ children }) => {
       }
     });
   };
-  
- const sumar = (id) => {
+
+  const sumar = (id) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
         item.id === id ? { ...item, quantity: item.quantity + 1 } : item
@@ -42,6 +41,7 @@ export const CartProvider = ({ children }) => {
         .filter((item) => item.quantity > 0)
     );
   };
+
   return (
     <CartContext.Provider value={{ cart, addToCart, sumar, restar }}>
       {children}
