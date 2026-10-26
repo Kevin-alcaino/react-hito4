@@ -2,11 +2,12 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 
+
 function Navbar() {
 
 
-  const { total } = useContext(CartContext);
-  const formatCLP = (value) => value.toLocaleString("es-CL");
+  const { total = 0 } = useContext(CartContext);
+  const formatCLP = (value) => value.toLocaleString("es-CL")
 
   return (
    <nav className="navbar">

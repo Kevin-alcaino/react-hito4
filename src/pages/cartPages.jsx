@@ -3,11 +3,13 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { CartContext } from "../context/CartContext";
 
+
 function Cart() {
   
   const { sumar, restar, total } = useContext(CartContext);
   const { cart } = useContext(CartContext);
   const formatCLP = (value) => value.toLocaleString("es-CL");
+  
 
   return (
     <>
