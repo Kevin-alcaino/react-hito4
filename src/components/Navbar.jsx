@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 
 
@@ -11,10 +11,10 @@ function Navbar() {
 
   return (
    <nav className="navbar">
-  <Link to="/" className="btn btn-outline-light btn-sm">🍕 Inicio</Link>
-  <Link to="/login" className="btn btn-outline-light btn-sm">🔐 Ingresar</Link>
-  <Link to="/formulario" className="btn btn-outline-light btn-sm">📝 Registro</Link>
-  <Link to="/carrito" className="btn btn-outline-light btn-sm">🛒 Total: ${formatCLP(total)}</Link>
+  <NavLink to="/" className="btn btn-outline-light btn-sm">🍕 Inicio</NavLink>
+  <NavLink to="/login" className="btn btn-outline-light btn-sm">🔐 Ingresar</NavLink>
+  <NavLink to="/formulario" className="btn btn-outline-light btn-sm">📝 Registro</NavLink>
+  <NavLink to="/carrito" className="btn btn-outline-light btn-sm">🛒 Total: ${formatCLP(total)}</NavLink>
 </nav>
   );
 }

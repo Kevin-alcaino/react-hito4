@@ -8,7 +8,7 @@ function Cart() {
   
   const { sumar, restar, total } = useContext(CartContext);
   const { cart } = useContext(CartContext);
-  const formatCLP = (value) => value.toLocaleString("es-CL");
+  const formatCLP = (value) => value?.toLocaleString() ?? '0';
   
 
   return (
