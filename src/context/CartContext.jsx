@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 
+
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
@@ -11,6 +12,9 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
+
+  const totalQuantity = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
+  const total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 
   const addToCart = (pizza) => {
     setCart((prevCart) => {
@@ -42,10 +46,13 @@ export const CartProvider = ({ children }) => {
         .filter((item) => item.quantity > 0)
     );
   };
-
+  const vaciarCarrito = () => {
+    setCart([]);
+  };
+ 
 
 return (
-    <CartContext.Provider value={{ cart, addToCart, sumar, restar }}>
+    <CartContext.Provider value={{ cart, addToCart, sumar, restar, vaciarCarrito, total, totalQuantity }}>
       {children}
     </CartContext.Provider>
   );

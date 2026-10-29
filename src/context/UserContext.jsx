@@ -15,8 +15,10 @@ export const UserProvider = ({ children }) => {
         alert("La contraseña debe tener al menos 6 carcteres")
         return;
     }
+
+    setToken(true);
     alert("¡¡Inicio de Sesión Exitoso!!")
-    navigate("/")
+    navigate ("/")
                                               
   }
   const Logtout = () => {

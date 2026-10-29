@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -6,6 +8,9 @@ import Footer from "../components/Footer";
  function LoginPages() {
    const [email, setEmail] = useState("");
    const [contrasena, setContrasena] = useState("");
+
+   const { Login } = useContext(UserContext);
+   const navigate = useNavigate();
   
    const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,10 +22,13 @@ import Footer from "../components/Footer";
     
     
     if (contrasena.length < 6){
-      alert("La contraseña debe tener al menos 6 carcteres")
+      alert("La contraseña debe tener al menos 6 caracteres")
       return;
     }
+    Login(email, contrasena);
     alert("¡¡Inicio de Sesión Exitoso!!")
+
+    navigate("/");
    
   };
 
