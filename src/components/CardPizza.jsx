@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { CartContext } from '../context/CartContext';
+import { Link } from 'react-router-dom';
 
 function CardPizza() {
   const { addToCart } = useContext(CartContext);
@@ -55,12 +56,20 @@ function CardPizza() {
                     <h4 className="fw-bold my-3">
                       Precio: ${formatCLP(pizza.price)}
                     </h4>
-                    <button
-                      className="btn-orange w-100 fw-bold"
-                      onClick={() => addToCart(pizza)}
-                    >
-                      Añadir 🛒
-                    </button>
+
+                    <div className="d-flex gap-2">
+                      <Link to={`/pizza/${pizza.id}`} className="btn btn-outline-dark w-50 fw-bold">
+                        Ver Más 👀
+                      </Link>
+                      
+                      <button
+                        className="btn-orange w-50 fw-bold" /* Cambiado a w-50 para que encaje perfecto */
+                        onClick={() => addToCart(pizza)}
+                      >
+                        Añadir 🛒
+                      </button>
+                    </div>
+
                   </div>
                 </div>
               </div>
