@@ -57,9 +57,10 @@ const navigate = useNavigate();
         <button 
               className="btn btn- mt-2" 
               onClick={handlePagar}
-              disabled={!token}
-            >
-              {token ? "Pagar" : "Inicia sesión para pagar"}
+              >
+              {!token ? "Inicia sesión para pagar" : "Pagar"}
+            
+              
             </button>
       </div>
       <Footer />
