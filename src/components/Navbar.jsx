@@ -3,9 +3,10 @@ import { NavLink } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { UserContext } from "../context/UserContext";
 
+
 function Navbar() {
   const { total = 0 } = useContext(CartContext);
-  const { token, logout } = useContext(UserContext);
+  const { token, Logout } = useContext(UserContext);
   const formatCLP = (value) => value.toLocaleString("es-CL");
 
   return (
@@ -19,7 +20,7 @@ function Navbar() {
           <NavLink to="/profile" className={({ isActive }) => isActive ? "text-white" : "link-no-activo       "}>
             🔒 Perfil
           </NavLink>
-          <button onClick={logout} className="btn btn-outline-light btn-sm">
+          <button onClick={Logout} className="btn btn-outline-light btn-sm">
             🔒 Logout
           </button>
         </>
