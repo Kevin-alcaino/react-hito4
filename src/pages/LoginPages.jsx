@@ -4,46 +4,47 @@ import { UserContext } from "../context/UserContext";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-
- function LoginPages() {
+function LoginPages() {
    const [email, setEmail] = useState("");
    const [contrasena, setContrasena] = useState("");
 
    const { Login } = useContext(UserContext);
    const navigate = useNavigate();
-  
+ 
    const handleSubmit = (e) => {
     e.preventDefault();
 
-     if ( !email || !contrasena ){
-      alert("Por favor, ingresar todos los campos")
+    if (!email || !contrasena) {
+      alert("Por favor, ingresar todos los campos");
       return;
     }
     
-    
-    if (contrasena.length < 6){
-      alert("La contraseña debe tener al menos 6 caracteres")
+    if (contrasena.length < 6) {
+      alert("La contraseña debe tener al menos 6 caracteres");
       return;
     }
-    Login(email, contrasena);
-    alert("¡¡Inicio de Sesión Exitoso!!")
 
-    navigate("/");
-   
+    try {
+      Login(email, contrasena);
+      setEmail("");
+      setContrasena("");
+      alert("¡¡Inicio de Sesión Exitoso!!");
+      navigate("/");
+    } catch (error) {
+      console.error("Error al iniciar sesión:", error);
+    }
   };
 
   return (
      <>
-  
       <Header />
-      <div  className="login">
+      <div className="login">
       <h1>Iniciar sesión</h1>
       <div className="casillas">
         
         <form onSubmit={handleSubmit}>
           
           {/* email */}
-
         <label className="formLabel" 
         htmlFor="email">Email</label>
         <input 
@@ -54,8 +55,7 @@ import Footer from "../components/Footer";
          placeholder="email@correo.com"
          required />
 
-         {/* contraseña */}
-
+          {/* contraseña */}
         <label className="formLabel" 
         htmlFor="contrasena">Contraseña</label>
         <input type="password" 
@@ -75,4 +75,5 @@ import Footer from "../components/Footer";
     </>
   );
 }
+
 export default LoginPages;

@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import HomePages from './pages/HomePages';
 import FormularioPages from './pages/FormularioPages';
 import LoginPages from "./pages/LoginPages";
+import ProfilePages from './pages/ProfilePages';
 import Cart from './pages/CartPages';
 import NotfoundPages from './pages/NotfoundPages';
 import { CartProvider } from './context/CartContext'; 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/formulario" element={<FormularioPages />} />
         <Route path="/login" element={<LoginPages />} />
         <Route path="/carrito" element={<Cart />} />
+        <Route path="/profile" element={<ProfilePages />} />
         <Route path="*" element={<NotfoundPages/>} />
       </Routes>
     </CartProvider>

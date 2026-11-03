@@ -11,3 +11,16 @@ body {
     font-style: normal;
     font-variation-settings: "ELSH" 0;
 }
+
+.link-no-activo {
+    color: rgb(19, 18, 18);
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.text-white {
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+
+}

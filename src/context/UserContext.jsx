@@ -21,12 +21,12 @@ export const UserProvider = ({ children }) => {
     navigate ("/")
                                               
   }
-  const Logtout = () => {
+  const Logout = () => {
     setToken(false);
   };
   
   return (
-    <UserContext.Provider value={{ token, setToken, Login, Logtout }}>
+    <UserContext.Provider value={{ token, setToken, Login, Logout }}>
       {children}
     </UserContext.Provider>
   )
