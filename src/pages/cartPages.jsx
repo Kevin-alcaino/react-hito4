@@ -55,12 +55,12 @@ const navigate = useNavigate();
           </>
         )}
         <button 
-              className="btn btn- mt-2" 
+              className="btn mt-2" 
+              style={{ backgroundColor: "#fa6540", color: "white" }}
               onClick={handlePagar}
               >
               {!token ? "Inicia sesión para pagar" : "Pagar"}
             
-              
             </button>
       </div>
       <Footer />
