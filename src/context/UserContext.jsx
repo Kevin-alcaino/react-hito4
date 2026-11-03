@@ -1,10 +1,11 @@
 import { createContext, useState} from "react";
 import { useNavigate } from "react-router-dom";
 
+
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [token, setToken] = useState(true)
+  const [token, setToken] = useState(false)
   const navigate = useNavigate()
   const Login = (email, password) => {
     if (!email.trim() || !password.trim())  {   
