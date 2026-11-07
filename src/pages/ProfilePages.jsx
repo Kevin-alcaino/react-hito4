@@ -20,7 +20,8 @@ const ProfilePages = () => {
             </button>
           </div>
         ) : (
-          <p>No hay ningún usuario conectado actualmente.</p>
+          <p> ¡Bienvenido, a la pizzería Il Tomaco!, 
+            <br/>canjea el 35% de descuento en tu primera compra.</p>
         )}
       </div>
       <Footer />
