@@ -3,11 +3,11 @@
 # 🔄 Actualización a Hito 5 - React - React Router.
 # 🔄 Actualización a Hito 6 - React - Context API.
 # 🔄 Actualización a Hito 7 - React - Consumo de APIs y Autenticación.
+# 🔄 Actualización a Hito 8 - React - Implementación de Json Web Token (JWT).
 
  ## 🧠 Descripción del proyecto.
 
-Aplicación web desarrollada en React y Vite para la pizzería "Il Tomaco", este proyecto permite navegar por la oferta de productos, gestionar el carrito de compras dinámicamente y contar con vistas de registro y login. Estos son algunos de los conceptos utilizados:
-
+Aplicación web desarrollada en React y Vite para la pizzería "Il Tomaco", este proyecto permite navegar por la oferta de productos, gestionar el carrito de compras dinámicamente, autenticar usuarios mediante token y consumir endpoint avanzados del backend. 
 ⚙️ Métodos y Funciones Clave
 
 **`Fetch API & Async/Await`**: Consumo de endpoints externos para la obtención dinámica del listado de pizzas (`pizzas.js` / API) y la gestión de la sesión del usuario.
@@ -17,6 +17,8 @@ Aplicación web desarrollada en React y Vite para la pizzería "Il Tomaco", este
 **`useState`** (React Hook): Manejo del estado local para gestionar los datos de los formularios (email, contraseña), así como para administrar las cantidades y elementos del carrito de compras.
 
 **`useEffect`** (React Hook): Sincronización del estado global del carrito con `localStorage` para mantener los productos guardados tras recargar la página.
+
+**`useCallback`** (React Hook): Optimización de funciones dentro del contexto de usuario para evitar renderizados innecesarios y dependencias circulares en los hooks de ciclo de vida.
 
 **`e.preventDefault()`** Intercepción del comportamiento nativo del navegador en los formularios para validar los datos sin recargar la página.
 
@@ -52,6 +54,19 @@ La aplicación utiliza `react-router-dom` para gestionar la navegación entre p�
 * **`Git & GitHub`** Control de versiones y despliegue continuo.
 * **`Vercel`** Plataforma de despliegue cloud.
 
+## 🌟 Cambios Destacados en el Hito 8
+
+Optimización del Flujo de Autenticación (UserContext.jsx):
+
+Integración formal del estado del token y del usuario **`(user)`** recuperados desde el almacenamiento local **`(localStorage)`**.
+
+Inclusión de la función validarUsuario conectada al endpoint protegido **`/api/auth/me`** mediante cabeceras de autorización Bearer.
+
+Refactorización y Estabilidad en Vistas **`(ProfilePages.jsx)`**:
+
+Uso de useCallback en la validación de usuarios para cumplir con las reglas de dependencias estrictas de ESLint.
+
+
 ## 🏗️ Estructura del proyecto.
 
 ```
@@ -77,19 +92,19 @@ La aplicación utiliza `react-router-dom` para gestionar la navegación entre p�
 ┃ ┃ ┣ 📜Header.jsx
 ┃ ┃ ┣ 📜Hero.jsx
 ┃ ┃ ┗ 📜Navbar.jsx
-┃ ┣ 📂context              [ACTUALIZADO - Hito 6 & 7]
+┃ ┣ 📂context           [ACTUALIZADO - Hito 8]
 ┃ ┃ ┣ 📜CartContext.jsx    <-- Contexto global para el carrito.
-┃ ┃ ┗ 📜UserContext.jsx    <-- Contexto global para autenticación y token.
+┃ ┃ ┗ 📜UserContext.jsx    <-- Contexto global para autenticación, token y validación.
 ┃ ┣ 📂js
 ┃ ┃ ┗ 📜pizzas.js          <-- Array base / respaldo de pizzas.
-┃ ┣ 📂pages                [ACTUALIZADO - Hito 7]
+┃ ┣ 📂pages              [ACTUALIZADO - Hito 8]
 ┃ ┃ ┣ 📜CartPages.jsx      <-- Vista interactiva del carrito conectada a API/Context.
 ┃ ┃ ┣ 📜FormularioPages.jsx
 ┃ ┃ ┣ 📜HomePages.jsx
 ┃ ┃ ┣ 📜LoginPages.jsx
 ┃ ┃ ┣ 📜NotfoundPages.jsx
 ┃ ┃ ┣ 📜PizzaPages.jsx
-┃ ┃ ┗ 📜ProfilePages.jsx   <-- Vista de perfil protegida por token.
+┃ ┃ ┗ 📜ProfilePages.jsx   <-- Vista de perfil protegida, optimizada con useCallback y flexbox.
 ┃ ┣ 📜App.css
 ┃ ┣ 📜App.jsx              <-- Envuelto por Providers para acceso global.
 ┃ ┣ 📜index.css
@@ -99,12 +114,12 @@ La aplicación utiliza `react-router-dom` para gestionar la navegación entre p�
 ┣ 📜index.html
 ┣ 📜package-lock.json
 ┣ 📜package.json
-┣ 📜README.md              <-- Estamos aquí.
+┣ 📜README.md              <-- Estamos aqui.
 ┗ 📜vite.config.js
  ```
 
 ## 🔗 Links.
-Actualmente estoy trabajando en: [Hito 7 - React - Consumo de APIs y Autenticación.](https://react-hito4.vercel.app/)
+Actualmente estoy trabajando en: [Hito 8 - React - React - Implementación de Json Web Token (JWT).](https://react-hito4.vercel.app/)
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://kevin-alcaino.github.io/Kevin-alcaino.io/)
 
 ## 🙋‍♂️ Autor.
