@@ -1,79 +1,82 @@
-import { useState, useContext } from "react";
+import {  useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-function LoginPages() {
-   const [email, setEmail] = useState("");
-   const [contrasena, setContrasena] = useState("");
-
-   const { Login } = useContext(UserContext);
+function LoginPages() {   
+   const { email, setEmail, password, setPassword, Login } = useContext(UserContext);
    const navigate = useNavigate();
  
-   const handleSubmit = (e) => {
-    e.preventDefault();
+   // 1. La lógica va dentro de una función asíncrona handleSubmit
+   const handleSubmit = async (e) => {
+     e.preventDefault();
 
-    if (!email || !contrasena) {
-      alert("Por favor, ingresar todos los campos");
-      return;
-    }
-    
-    if (contrasena.length < 6) {
-      alert("La contraseña debe tener al menos 6 caracteres");
-      return;
-    }
+     // Validar campos vacíos
+     if (!email || !password) {
+       alert("Por favor, ingresar todos los campos");
+       return;
+     }
 
-    try {
-      Login(email, contrasena);
-      setEmail("");
-      setContrasena("");
-      alert("¡¡Inicio de Sesión Exitoso!!");
-      navigate("/");
-    } catch (error) {
-      console.error("Error al iniciar sesión:", error);
-    }
-  };
+     // Validar longitud de la contraseña
+     if (password.length < 6) {
+       alert("La contraseña debe tener al menos 6 caracteres");
+       return;
+     }
 
-  return (
-     <>
-      <Header />
-      <div className="login">
-      <h1>Iniciar sesión</h1>
-      <div className="casillas">
-        
-        <form onSubmit={handleSubmit}>
-          
-          {/* email */}
-        <label className="formLabel" 
-        htmlFor="email">Email</label>
-        <input 
-         type="email"
-         id="email" 
-         value={email} 
-         onChange={(e) => setEmail(e.target.value)} 
-         placeholder="email@correo.com"
-         required />
+     try { 
+       // Llamamos a la función Login del contexto que conecta con tu backend (puerto 5000)
+       await Login(email, password);
 
-          {/* contraseña */}
-        <label className="formLabel" 
-        htmlFor="contrasena">Contraseña</label>
-        <input type="password" 
-        id="contrasena" 
-        value={contrasena} 
-        onChange={(e) => setContrasena(e.target.value)} 
-        placeholder="Ingrese su contraseña"
-        required />
+       setEmail("");
+       setPassword("");
+       alert("¡¡Inicio de Sesión Exitoso!!");
+       navigate("/");
+     } catch (error) {
+       console.error("Error al iniciar sesión:", error);
+     }
+   };
+
+   return (
+      <>
+       <Header />
+       <div className="login">
+       <h1>Iniciar sesión</h1>
+       <div className="casillas">
          
-        <button type="submit" className="boton">Iniciar Sesión</button>
+         <form onSubmit={handleSubmit}>
+           
+           {/* email */}
+           <label className="formLabel" htmlFor="email">Email</label>
+           <input 
+             type="email"
+             id="email" 
+             value={email} 
+             onChange={(e) => setEmail(e.target.value)} 
+             placeholder="email@correo.com"
+             required 
+           />
 
-        </form>
+           {/* contraseña */}
+           <label className="formLabel" htmlFor="password">Contraseña</label>
+           <input 
+             type="password" 
+             id="password" 
+             value={password} 
+             onChange={(e) => setPassword(e.target.value)} 
+             placeholder="Ingrese su contraseña"
+             required 
+           />
+          
+           <button type="submit" className="boton">Iniciar Sesión</button>
 
-      </div>
-      </div>
-      <Footer />
-    </>
-  );
+         </form>
+
+       </div>
+       </div>
+       <Footer />
+     </>
+   );
 }
 
 export default LoginPages;

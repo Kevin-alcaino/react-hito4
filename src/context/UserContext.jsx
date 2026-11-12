@@ -12,6 +12,33 @@ export const UserProvider = ({ children }) => {
 
   const navigate = useNavigate()
 
+  const Login = async (emailUser, passwordUser) => {
+    try {
+    const response = await fetch("http://localhost:5000/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: emailUser,
+        password: passwordUser,
+      }),
+    });
+
+      const data = await response.json();
+
+      if (data?.error) {
+        alert(data.error);
+        return;
+      }
+
+      setToken(true);
+      localStorage.setItem("token", data.token);
+    } catch (error) {
+      console.error("Error al iniciar sesión:", error);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -37,6 +64,7 @@ export const UserProvider = ({ children }) => {
     });
 
     const data = await response.json();
+    
 
     if (data?.error) {
       alert(data.error);
@@ -45,7 +73,8 @@ export const UserProvider = ({ children }) => {
 
     
     setToken(true);
-    alert("¡¡Inicio de Sesión Exitoso!!")
+    alert("¡¡Inicio de Sesión Exitoso!!");
+    localStorage.setItem("token", data.token);
     navigate ("/")
                                               
   }
@@ -54,7 +83,7 @@ export const UserProvider = ({ children }) => {
     localStorage.removeItem("token");
   };
   return (
-    <UserContext.Provider value={{ email, setEmail, password, setPassword, token, handleSubmit, Logout}}>
+    <UserContext.Provider value={{ email, setEmail, password, setPassword, token, handleSubmit, Login, Logout}}>
       {children}
     </UserContext.Provider>
   )
