@@ -95,8 +95,6 @@ Uso de useCallback en la validación de usuarios para cumplir con las reglas de 
 ┃ ┣ 📂context           [ACTUALIZADO - Hito 8]
 ┃ ┃ ┣ 📜CartContext.jsx    <-- Contexto global para el carrito.
 ┃ ┃ ┗ 📜UserContext.jsx    <-- Contexto global para autenticación, token y validación.
-┃ ┣ 📂js
-┃ ┃ ┗ 📜pizzas.js          <-- Array base / respaldo de pizzas.
 ┃ ┣ 📂pages              [ACTUALIZADO - Hito 8]
 ┃ ┃ ┣ 📜CartPages.jsx      <-- Vista interactiva del carrito conectada a API/Context.
 ┃ ┃ ┣ 📜FormularioPages.jsx
